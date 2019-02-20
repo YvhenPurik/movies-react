@@ -117,12 +117,16 @@ class Home extends Component {
 
     return (
       <div className="wrap">
-        <AppBar position="static" >
-        <Button variant="contained" type="button" onClick={() => this.handleAction('addMode')}>
-          Add New Movie
-        </Button>
+        <AppBar position="static">
+          <Button
+            variant="contained"
+            type="button"
+            color="primary"
+            onClick={() => this.handleAction('addMode')}
+          >
+            Add New Movie
+          </Button>
         </AppBar>
-        
 
         <div className="App row flex-column flex-sm-row m-auto">
           {movies &&
