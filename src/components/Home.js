@@ -114,88 +114,90 @@ class Home extends Component {
     const toggleMode = selectedMovieId !== undefined ? 'editMode' : 'addMode';
 
     return (
-      <div className="App row flex-column flex-sm-row m-auto">
+      <div>
         <button className="btn btn-link" type="button" onClick={() => this.handleAction('addMode')}>
           Add New Movie
         </button>
-        {movies &&
-          movies.map((m, i) => (
-            <Movie
-              key={i}
-              movie={m}
-              onEdit={() => this.handleAction('editMode', i)}
-              onDelete={() => this.handleAction('deleteMode', i)}
-            />
-          ))}
-        <PopUp isOpen={selectedMode} toggle={() => this.toggle(toggleMode)} footer={modalFooter}>
-          <form>
-            <div className="form-row">
-              <label className="col">
-                Title:
-                <input
-                  className="form-control"
-                  type="text"
-                  name="Title"
-                  value={selectedMovie.Title || ''}
-                  onChange={this.handleChange}
-                />
-              </label>
-              <label className="col">
-                Year:
-                <input
-                  className="form-control"
-                  type="text"
-                  name="Year"
-                  value={selectedMovie.Year || ''}
-                  onChange={this.handleChange}
-                />
-              </label>
-            </div>
-            <div className="form-row">
-              <label className="col">
-                Runtime:
-                <input
-                  className="form-control"
-                  type="text"
-                  name="Runtime"
-                  value={selectedMovie.Runtime || ''}
-                  onChange={this.handleChange}
-                />
-              </label>
-              <label className="col">
-                Genre:
-                <input
-                  className="form-control"
-                  type="text"
-                  name="Genre"
-                  value={selectedMovie.Genre || ''}
-                  onChange={this.handleChange}
-                />
-              </label>
-            </div>
-            <label>
-              Director:
-              <input
-                className="form-control"
-                type="text"
-                name="Director"
-                value={selectedMovie.Director || ''}
-                onChange={this.handleChange}
+        <div className="App row flex-column flex-sm-row m-auto">
+          {movies &&
+            movies.map((m, i) => (
+              <Movie
+                key={i}
+                movie={m}
+                onEdit={() => this.handleAction('editMode', i)}
+                onDelete={() => this.handleAction('deleteMode', i)}
               />
-            </label>
-            <div className="form-row">
-              {errorText && <div className="m-0 alert alert-danger">{errorText}</div>}
-              <div className="m-0 alert">&nbsp;</div>
-            </div>
-          </form>
-        </PopUp>
-        <PopUp
-          isOpen={deleteMode}
-          toggle={() => this.toggle('deleteMode')}
-          footer={deleteModalFooter}
-        >
-          Are you sure you want to delete this movie?
-        </PopUp>
+            ))}
+          <PopUp isOpen={selectedMode} toggle={() => this.toggle(toggleMode)} footer={modalFooter}>
+            <form>
+              <div className="form-row">
+                <label className="col">
+                  Title:
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="Title"
+                    value={selectedMovie.Title || ''}
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <label className="col">
+                  Year:
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="Year"
+                    value={selectedMovie.Year || ''}
+                    onChange={this.handleChange}
+                  />
+                </label>
+              </div>
+              <div className="form-row">
+                <label className="col">
+                  Runtime:
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="Runtime"
+                    value={selectedMovie.Runtime || ''}
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <label className="col">
+                  Genre:
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="Genre"
+                    value={selectedMovie.Genre || ''}
+                    onChange={this.handleChange}
+                  />
+                </label>
+              </div>
+              <label>
+                Director:
+                <input
+                  className="form-control"
+                  type="text"
+                  name="Director"
+                  value={selectedMovie.Director || ''}
+                  onChange={this.handleChange}
+                />
+              </label>
+              <div className="form-row">
+                {errorText && <div className="m-0 alert alert-danger">{errorText}</div>}
+                <div className="m-0 alert">&nbsp;</div>
+              </div>
+            </form>
+          </PopUp>
+          <PopUp
+            isOpen={deleteMode}
+            toggle={() => this.toggle('deleteMode')}
+            footer={deleteModalFooter}
+          >
+            Are you sure you want to delete this movie?
+          </PopUp>
+        </div>
       </div>
     );
   }

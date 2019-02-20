@@ -8,7 +8,7 @@ const Movie = props => {
   ];
   return (
     <div className="movie-box d-flex align-items-center align-items-sm-start rounded border flex-column mx-auto mb-2 flex-sm-row">
-      <img src={movie.Poster} alt="" className="rounded scaleDown" />
+      <img src={movie.Poster} alt="" className="rounded scaleDown img-poster" />
       <div className="d-flex flex-column col-12 py-2 movie-info col-sm-7">
         <h5>{movie.Title}</h5>
         <p className="m-0">
@@ -27,7 +27,7 @@ const Movie = props => {
           <strong>Director:</strong>
           {movie.Director}
         </p>
-        <div className="mt-auto">
+        <div className="mt-auto m-top-100">
           {buttonsMap.map((btn, i) => (
             <button
               key={i}
