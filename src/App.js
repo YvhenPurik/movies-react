@@ -1,41 +1,15 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './components/Home';
 
-class App extends Component {
- 
-
-  constructor(props){
-    super(props);
-    this.state= {movie: this.props.movie}
-}
-
-
-  componentDidMount() {
-    let Items = [];
-    let movieItems = [];
-    const url = 'https://www.omdbapi.com/?type=movie&r=json&s=Fast&apikey=73943765';
-
-    const generateMovieId = array => {
-      if (array.length >= 1) {
-        return (
-          Math.max(
-            ...array.map(function(o) {
-              return o.id;
-            })
-          ) + 1
-        );
-      } else {
-        return 1;
-      }
-    };
-
-    axios.get(url).then(response => console.log(response));
-  }
-
-  render() {
-    return <div className="App" />;
-  }
-}
+const App = props => (
+  <Router basename="/movies/">
+    <div>
+      <Switch>
+        <Route path="/" component={Home} exact={true} />
+      </Switch>
+    </div>
+  </Router>
+);
 
 export default App;
