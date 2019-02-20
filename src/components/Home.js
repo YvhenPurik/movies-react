@@ -5,6 +5,8 @@ import { fetchMovies, updateMovies } from '../redux/action.js';
 import Movie from './Movie';
 import PopUp from './PopUp';
 import isValidYear from '../validation/validYear';
+import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
 class Home extends Component {
   state = {
     toggle: {
@@ -114,10 +116,14 @@ class Home extends Component {
     const toggleMode = selectedMovieId !== undefined ? 'editMode' : 'addMode';
 
     return (
-      <div>
-        <button className="btn btn-link" type="button" onClick={() => this.handleAction('addMode')}>
+      <div className="wrap">
+        <AppBar position="static" >
+        <Button variant="contained" type="button" onClick={() => this.handleAction('addMode')}>
           Add New Movie
-        </button>
+        </Button>
+        </AppBar>
+        
+
         <div className="App row flex-column flex-sm-row m-auto">
           {movies &&
             movies.map((m, i) => (

@@ -1,9 +1,10 @@
 .App {
-  text-align: center;
+  
   padding-top: 100px;
 }
 .movie-box{
   width: 470px;
+  
 }
 .img-poster{
   height: 300px;
@@ -11,4 +12,7 @@
 .m-top-100{
   position: absolute;
   top:240px;
+}
+.wrap{
+  width: 100%
 }

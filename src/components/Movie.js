@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
 
 const Movie = props => {
   const { movie, onEdit, onDelete } = props;
@@ -7,7 +8,7 @@ const Movie = props => {
     { classname: 'delete-btn', handler: onDelete, text: 'Delete' },
   ];
   return (
-    <div className="movie-box d-flex align-items-center align-items-sm-start rounded border flex-column mx-auto mb-2 flex-sm-row">
+    <div className="movie-box d-flex align-items-center align-items-sm-start rounded border flex-column  flex-sm-row">
       <img src={movie.Poster} alt="" className="rounded scaleDown img-poster" />
       <div className="d-flex flex-column col-12 py-2 movie-info col-sm-7">
         <h5>{movie.Title}</h5>
@@ -29,14 +30,16 @@ const Movie = props => {
         </p>
         <div className="mt-auto m-top-100">
           {buttonsMap.map((btn, i) => (
-            <button
+            <Button
+              variant="contained"
+              color="primary"
               key={i}
               type="button"
               className={`btn btn-primary ${btn.classname}`}
               onClick={btn.handler}
             >
               {btn.text}
-            </button>
+            </Button>
           ))}
         </div>
       </div>

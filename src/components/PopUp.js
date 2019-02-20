@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import Button from '@material-ui/core/Button';
 
 class PopUp extends Component {
   render() {
@@ -15,18 +16,18 @@ class PopUp extends Component {
           <ModalFooter>
             {showActionButtons && (
               <div>
-                <Button color="primary" onClick={footer.action}>
+                <Button variant="contained" color="primary" onClick={footer.action}>
                   {actionText}
                 </Button>{' '}
                 {
-                  <Button color="secondary" onClick={toggle}>
+                  <Button variant="contained" color="primary" onClick={toggle}>
                     Cancel
                   </Button>
                 }
               </div>
             )}
             {showActionButtons || (
-              <Button color="secondary" onClick={toggle}>
+              <Button variant="contained" color="primary" onClick={toggle}>
                 Close
               </Button>
             )}
