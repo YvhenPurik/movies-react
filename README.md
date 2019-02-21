@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+deploy app [Movie-react](https://movie-react-65403.firebaseapp.com/).
 
 ## Available Scripts
 

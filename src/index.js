@@ -6,6 +6,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import * as firebase from 'firebase';
+
+var config = {
+  apiKey: "AIzaSyBfN7Fo6UJZnejv-p3ILBwiZN6UX8UIWkY",
+  authDomain: "movie-react-65403.firebaseapp.com",
+  databaseURL: "https://movie-react-65403.firebaseio.com",
+  projectId: "movie-react-65403",
+  storageBucket: "movie-react-65403.appspot.com",
+  messagingSenderId: "217562758344"
+};
+firebase.initializeApp(config);
 
 const store = configureStore();
 const app = (
