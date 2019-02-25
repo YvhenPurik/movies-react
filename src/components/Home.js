@@ -79,13 +79,14 @@ class Home extends Component {
         this.setState({ errorText: 'It Must be a valid year' });
         return false;
       }
-
-      const movieExist = copy.find(
-        e => selectedMovie.Title.localeCompare(e.Title, 'en', { sensitivity: 'base' }) === 0
-      );
-      if (movieExist) {
-        this.setState({ errorText: 'Movie exist, Please choose another Title.' });
-        return false;
+      if (action == 'addMode') {
+        const movieExist = copy.find(
+          e => selectedMovie.Title.localeCompare(e.Title, 'en', { sensitivity: 'base' }) === 0
+        );
+        if (movieExist) {
+          this.setState({ errorText: 'Movie exist, Please choose another Title.' });
+          return false;
+        }
       }
     }
 
