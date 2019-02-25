@@ -88,6 +88,21 @@ class Home extends Component {
           return false;
         }
       }
+      if (action == 'editMode') {
+        const movieExist = copy.find(
+          e => selectedMovie.Title.localeCompare(e.Title, 'en', { sensitivity: 'base' }) === 0
+        );
+        const movieExistYear = copy.find(
+          e => selectedMovie.Year.localeCompare(e.Year, 'en', { sensitivity: 'base' }) === 0
+        );
+        if (selectedMovie.Year !== movieExist.Year) {
+          console.log('не совпадает год');
+          if (movieExist) {
+            this.setState({ errorText: 'Movie exist, Please choose another Title.' });
+            return false;
+          }
+        }
+      }
     }
 
     if (action === 'deleteMode') {
